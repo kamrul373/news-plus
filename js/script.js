@@ -21,7 +21,14 @@ const displayCategories = categories => {
 // calling categories function to show in frontend
 loadCategories();
 
+// displaying all news in a category 
+const displayCategoryNews = async (category_id, category_name) => {
+    const categoryNews = await loadCategoryNews(category_id)
+    console.log(categoryNews);
 
+    // displaying number of result found 
+    displayNumberOfResultFound('mumberOfNewsfound', category_name, categoryNews.length);
+}
 
 
 
