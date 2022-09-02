@@ -3,14 +3,28 @@ body {
 
 }
 
-.nav-item a.nav-link {
+/* header area */
+header .nav-item a.nav-link {
     border-bottom: 1px solid transparent;
     transition: border 1s
 }
 
-.nav-item a.nav-link:hover {
+header .nav-item a.nav-link:hover {
     color: blue;
     font-weight: bold;
     border-bottom: 1px solid blue;
     box-sizing: border-box;
+}
+
+/* category menu area */
+.categories .nav-item:hover {
+    background-color: #EEEFFF;
+}
+
+.categories .nav-item .nav-link {
+    color: #858585;
+}
+
+.categories .nav-item:hover .nav-link {
+    color: #5D5FEF;
 }
