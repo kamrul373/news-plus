@@ -17,12 +17,13 @@ header .nav-item a.nav-link:hover {
 }
 
 /* category menu area */
-.categories .nav-item:hover {
-    background-color: #EEEFFF;
-}
-
 .categories .nav-item .nav-link {
     color: #858585;
+    font-size: 1.1rem;
+}
+
+.categories .nav-item:hover {
+    background-color: #EEEFFF;
 }
 
 .categories .nav-item:hover .nav-link {
