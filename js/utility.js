@@ -14,3 +14,12 @@ const displayNumberOfResultFound = (containerId, name = '', result = '') => {
     `;
     }
 }
+// spinner 
+const spinner = logic => {
+    const spinnerContainer = document.getElementById("custom-spinner");
+    if (logic == "show") {
+        spinnerContainer.classList.remove("d-none");
+    } else if (logic == "hide") {
+        spinnerContainer.classList.add("d-none");
+    }
+}

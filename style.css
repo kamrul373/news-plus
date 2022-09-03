@@ -29,3 +29,14 @@ header .nav-item a.nav-link:hover {
 .categories .nav-item:hover .nav-link {
     color: #5D5FEF;
 }
+
+/* no of news found*/
+#mumberOfNewsfound {
+    max-width: 1100px;
+    height: 70px;
+}
+
+/* spinner */
+#custom-spinner {
+    z-index: 999;
+}
