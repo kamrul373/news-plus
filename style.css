@@ -4,6 +4,10 @@ body {
 }
 
 /* header area */
+ul#category-menu li {
+    margin: auto !important;
+}
+
 header .nav-item a.nav-link {
     border-bottom: 1px solid transparent;
     transition: border 1s

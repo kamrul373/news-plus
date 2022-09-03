@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
                         <li class="nav-item px-3">
-                            <a class="nav-link active" aria-current="page" href="#">News</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">News</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="blog.html">Blog</a>
@@ -43,180 +43,205 @@
     <!-- header area ends -->
 
     <!-- blogs starts -->
-    <div class="container-fluid px-5">
-        <div class="row py-4" id="varletconst">
-            <!-- blog colum -->
-            <div class="col-md-9 col-sm-12">
-                <!-- blog 1 -->
-                <div class="row mb-4" id="blog-1">
-                    <div class="blog-thumb py-2">
-                        <h2 class="mb-4">Difference between var, let and const keywords in JavaScript</h2>
-                        <img src="images/Difference between var, let and const keywords in JavaScript.jpg"
-                            class="img-fluid" alt="var-let-const">
+    <main>
+        <div class="container-fluid px-5">
+            <div class="row py-4" id="varletconst">
+                <!-- blog colum -->
+                <div class="col-md-9 col-sm-12">
+                    <!-- blog 1 -->
+                    <div class="row mb-4" id="blog-1">
+                        <div class="blog-thumb py-2">
+                            <h2 class="mb-4">Difference between var, let and const keywords in JavaScript</h2>
+                            <img src="images/Difference between var, let and const keywords in JavaScript.jpg"
+                                class="img-fluid" alt="var-let-const">
+                        </div>
+                        <div class="blog-content fs-4">
+                            <p>
+                                <strong class="text-primary">var keyword in JavaScript</strong> : The var is the oldest
+                                keyword to declare a
+                                variable
+                                in JavaScript.
+                            </p>
+                            <p>
+                                The scope of a var variable is functional scope.It can be updated and re-declared into
+                                the
+                                scope.It can be declared without initialization.
+                            </p>
+                            <strong>Re-declared</strong>
+                            <pre>var hello = "Hello World"; <br />var hello = "say Hello instead";
+                            </pre>
+                            <strong>And also updated</strong>
+                            <pre>var hello = "hey hi"; <br />hello = "say Hello instead";
+                            </pre>
+                            <p>
+                                Hoisting is a JavaScript mechanism where variables and function declarations are moved
+                                to
+                                the top of their scope before code execution. <strong>var</strong> variables are hoisted
+                                to
+                                the top of their
+                                scope and initialized with a value of undefined.
+                                Now we are trying to not use <strong>var</strong> keyword after coming ES6 as var
+                                keyword
+                                has some problem.
+                            </p>
+                            <strong>Can be accessed outside of curly block</strong>
+                            <pre>
+    var m1 = "hello"
+    if (true) {
+        var m2 = "hello 2"
+        console.log(m1);
+    }
+    console.log(m2)
+                            </pre>
+                            <p>
+                                <strong class="text-primary">let keyword in JavaScript</strong> :The let keyword is an
+                                improved version of the
+                                var keyword.
+                            </p>
+                            <p>
+                                The scope of a let variable is block scope.It can be updated but cannot be re-declared
+                                into
+                                the scope.It cannot be accessed without initialization otherwise it will give
+                                ‘referenceError’.
+                            </p>
+                            <strong>let keyword variable can't access outside of block</strong>
+                            <pre>
+    let m1 = "say Hi";
+    if (true) {
+        let m2 = "say Hello instead";
+        console.log(m1);
+    }
+    console.log(m2)
+                            </pre>
+                            <p><strong class="text-primary">const keyword in JavaScript : </strong>const keyword has all
+                                the
+                                properties that are the same as the let keyword, except the user cannot update </p>
+                            <p>it.It cannot be updated or re-declared into the scope.It cannot be accessed without
+                                initialization, as it cannot be declared without initialization.</p>
+                            <p><strong>Note : </strong>So, users should use the let and const keyword to declare a
+                                variable
+                                in JavaScript. </p>
+                        </div>
                     </div>
-                    <div class="blog-content fs-4">
-                        <p>
-                            <strong class="text-primary">var keyword in JavaScript</strong> : The var is the oldest
-                            keyword to declare a
-                            variable
-                            in JavaScript.
-                        </p>
-                        <p>
-                            The scope of a var variable is functional scope.It can be updated and re-declared into the
-                            scope.It can be declared without initialization.
-                        </p>
-                        <strong>Re-declared</strong>
-                        <pre>var hello = "Hello World"; <br />var hello = "say Hello instead";
-                        </pre>
-                        <strong>And also updated</strong>
-                        <pre>var hello = "hey hi"; <br />hello = "say Hello instead";
-                        </pre>
-                        <p>
-                            Hoisting is a JavaScript mechanism where variables and function declarations are moved to
-                            the top of their scope before code execution. <strong>var</strong> variables are hoisted to
-                            the top of their
-                            scope and initialized with a value of undefined.
-                            Now we are trying to not use <strong>var</strong> keyword after coming ES6 as var keyword
-                            has some problem.
-                        </p>
-                        <strong>Can be accessed outside of curly block</strong>
-                        <pre>
-var m1 = "hello"
-if (true) {
-    var m2 = "hello 2"
-    console.log(m1);
-}
-console.log(m2)
-                        </pre>
-                        <p>
-                            <strong class="text-primary">let keyword in JavaScript</strong> :The let keyword is an
-                            improved version of the
-                            var keyword.
-                        </p>
-                        <p>
-                            The scope of a let variable is block scope.It can be updated but cannot be re-declared into
-                            the scope.It cannot be accessed without initialization otherwise it will give
-                            ‘referenceError’.
-                        </p>
-                        <strong>let keyword variable can't access outside of block</strong>
-                        <pre>
-let m1 = "say Hi";
-if (true) {
-    let m2 = "say Hello instead";
-    console.log(m1);
-}
-console.log(m2)
-                        </pre>
-                        <p><strong class="text-primary">const keyword in JavaScript : </strong>const keyword has all
-                            the
-                            properties that are the same as the let keyword, except the user cannot update </p>
-                        <p>it.It cannot be updated or re-declared into the scope.It cannot be accessed without
-                            initialization, as it cannot be declared without initialization.</p>
-                        <p><strong>Note : </strong>So, users should use the let and const keyword to declare a variable
-                            in JavaScript. </p>
+                    <!-- blog 2 -->
+                    <div class="row mb-4" id="blog-2">
+                        <div class="blog-thumb">
+                            <h2 class="my-4">Difference Between Regular Functions and Arrow Functions</h2>
+                            <img src="images/Difference Between Regular Functions and Arrow Functions.png" alt="">
+                        </div>
+                        <div class="blog-content fs-4 my-4">
+                            <p>
+                                Arrow functions – a new feature introduced in ES6 – enable writing concise functions in
+                                JavaScript. While both regular and arrow functions work in a similar manner,
+                            </p>
+                            <p>Regular Function:-</p>
+                            <pre>
+    function test(msg) {
+        return `Hey ${msg}`
+    }
+                            </pre>
+                            <p>The syntax of arrow functions:-</p>
+                            <pre>
+    var square = (x) => {
+        return (x*x);
+    };
+    console.log(square(9));
+                                
+                            </pre>
+                            <p>1.Curly brackets are not required if only one expression is present.Curly brackets must
+                                require in regular function</p>
+                            <p>2. Arrow function do not have arguments binding.But you can easily access the arrow
+                                function
+                                arguments using a rest parameter</p>
+                            <p>3. Inside of a regular JavaScript function, this value is dynamic. The dynamic context
+                                means
+                                that the value of this depends on how the function is invoked.An arrow function does not
+                                have its own “this” keyword.</p>
+                            <p>The value of this inside an arrow function remains the same throughout the lifecycle of
+                                the
+                                function and is always bound to the value of this in the closest non-arrow parent
+                                function
+                                which means No matter how or where being executed
+                            </p>
+                            <p>4. Arrow functions can never have duplicate named parameters, whether in strict or
+                                non-strict
+                                mode.</p>
+                        </div>
                     </div>
-                </div>
-                <!-- blog 2 -->
-                <div class="row mb-4" id="blog-2">
-                    <div class="blog-thumb">
-                        <h2 class="my-4">Difference Between Regular Functions and Arrow Functions</h2>
-                        <img src="images/Difference Between Regular Functions and Arrow Functions.png" alt="">
-                    </div>
-                    <div class="blog-content fs-4 my-4">
-                        <p>
-                            Arrow functions – a new feature introduced in ES6 – enable writing concise functions in
-                            JavaScript. While both regular and arrow functions work in a similar manner,
-                        </p>
-                        <p>Regular Function:-</p>
-                        <pre>
-function test(msg) {
-    return `Hey ${msg}`
-}
-                        </pre>
-                        <p>The syntax of arrow functions:-</p>
-                        <pre>
-var square = (x) => {
-    return (x*x);
-};
-console.log(square(9));
-                            
-                        </pre>
-                        <p>1.Curly brackets are not required if only one expression is present.Curly brackets must
-                            require in regular function</p>
-                        <p>2. Arrow function do not have arguments binding.But you can easily access the arrow function
-                            arguments using a rest parameter</p>
-                        <p>3. Inside of a regular JavaScript function, this value is dynamic. The dynamic context means
-                            that the value of this depends on how the function is invoked.An arrow function does not
-                            have its own “this” keyword.</p>
-                        <p>The value of this inside an arrow function remains the same throughout the lifecycle of the
-                            function and is always bound to the value of this in the closest non-arrow parent function
-                            which means No matter how or where being executed
-                        </p>
-                        <p>4. Arrow functions can never have duplicate named parameters, whether in strict or non-strict
-                            mode.</p>
-                    </div>
-                </div>
-                <!-- blog 3 -->
-                <div class="row mb-4" id="blog-3">
-                    <div class="blog-thumb">
-                        <h2 class="my-4">Difference between forEach(), map(), filter() and find() on JavaScript</h2>
-                        <img src="images/forEach, map, filter,and find in JavaScript..png" alt="">
-                    </div>
-                    <div class="blog-content fs-4 my-4">
-                        <p><strong class="text-primary">.forEach():-</strong>.forEach() is great you need to execute a
-                            function for each individual element in an array. but does not change the array , forEach
-                            returns undefined.</p>
+                    <!-- blog 3 -->
+                    <div class="row mb-4" id="blog-3">
+                        <div class="blog-thumb">
+                            <h2 class="my-4">Difference between forEach(), map(), filter() and find() on JavaScript</h2>
+                            <img src="images/forEach, map, filter,and find in JavaScript..png" alt="">
+                        </div>
+                        <div class="blog-content fs-4 my-4">
+                            <p><strong class="text-primary">.forEach():-</strong>.forEach() is great you need to execute
+                                a
+                                function for each individual element in an array. but does not change the array ,
+                                forEach
+                                returns undefined.</p>
 
-                        <p><strong class="text-primary">.map():-</strong>.map() executes the same code on every element
-                            in an array and returns a new array with the updated elements. .map() is actually slightly
-                            faster than .forEach().</p>
+                            <p><strong class="text-primary">.map():-</strong>.map() executes the same code on every
+                                element
+                                in an array and returns a new array with the updated elements. .map() is actually
+                                slightly
+                                faster than .forEach().</p>
 
-                        <p><strong class="text-primary">.filter():-</strong>.filter() when you want to select a subset
-                            of multiple elements from an array..filter() checks every element in an array to see if it
-                            meets a certain criteria and returns a new array with the elements.</p>
-                        <p><strong class="text-primary">.find():-</strong>.find() When you want to select a single
-                            element from an array.</p>
+                            <p><strong class="text-primary">.filter():-</strong>.filter() when you want to select a
+                                subset
+                                of multiple elements from an array..filter() checks every element in an array to see if
+                                it
+                                meets a certain criteria and returns a new array with the elements.</p>
+                            <p><strong class="text-primary">.find():-</strong>.find() When you want to select a single
+                                element from an array.</p>
+                        </div>
+                    </div>
+                    <!-- blog 4 -->
+                    <div class="row mb-4" id="blog-4">
+                        <div class="blog-thumb">
+                            <h2 class="my-4">Why use Template Strings ?</h2>
+                            <img src="images/template string.png" alt="">
+                        </div>
+                        <div class="blog-content fs-4 my-4">
+                            <p>In ES6, you create a template literal by wrapping your text in backticks (``)</p>
+                            <pre>let m1 = `This is a template literal`;</pre>
+                            <p>A multiline string can write easily by template string</p>
+                            <p>We can also pass JavaScript variables inside string by using ${'variable'} and can get
+                                dynamic values which gives flexibility to generate cotent</p>
+                            <p>By template string we can also do HTML insdie `` template string which gives power to
+                                design
+                                dynamic content more effectively</p>
+                            <p>We can also pass event handler functions , ternary operators and lots of thing can be
+                                done
+                                inside `` template literal</p>
+                        </div>
                     </div>
                 </div>
-                <!-- blog 4 -->
-                <div class="row mb-4" id="blog-4">
-                    <div class="blog-thumb">
-                        <h2 class="my-4">Why use Template Strings ?</h2>
-                        <img src="images/template string.png" alt="">
-                    </div>
-                    <div class="blog-content fs-4 my-4">
-                        <p>In ES6, you create a template literal by wrapping your text in backticks (``)</p>
-                        <pre>let m1 = `This is a template literal`;</pre>
-                        <p>A multiline string can write easily by template string</p>
-                        <p>We can also pass JavaScript variables inside string by using ${'variable'} and can get
-                            dynamic values which gives flexibility to generate cotent</p>
-                        <p>By template string we can also do HTML insdie `` template string which gives power to design
-                            dynamic content more effectively</p>
-                        <p>We can also pass event handler functions , ternary operators and lots of thing can be done
-                            inside `` template literal</p>
-                    </div>
-                </div>
-            </div>
-            <!-- side navigation column -->
-            <div class="col-md-3 col-sm-12 position-relative d-sm-none d-md-block" >
-                <div class="position-fixed top-25">
-                    <h2>Blogs</h2>
-                    <p>
-                        <a href="#blog-1" class="text-muted">1. Difference between var, let and const keywords in
-                            JavaScript</a>
-                    </p>
+                <!-- side navigation column -->
+                <div class="col-md-3 col-sm-12 position-relative d-sm-none d-md-block">
+                    <div class="position-fixed top-25">
+                        <h2>Blogs</h2>
+                        <p>
+                            <a href="#blog-1" class="text-muted">1. Difference between var, let and const keywords in
+                                JavaScript</a>
+                        </p>
 
-                    <p> <a href="#blog-2" class="text-muted">2. Difference Between Regular Functions and Arrow
-                            Functions</a></p>
-                    <p> <a href="#blog-3" class="text-muted">3. Difference between forEach(), map(), filter() and find()
-                            on JavaScript</a></p>
-                    <p> <a href="#blog-4" class="text-muted">.4 Why use Template Strings ?</a></p>
+                        <p> <a href="#blog-2" class="text-muted">2. Difference Between Regular Functions and Arrow
+                                Functions</a></p>
+                        <p> <a href="#blog-3" class="text-muted">3. Difference between forEach(), map(), filter() and
+                                find()
+                                on JavaScript</a></p>
+                        <p> <a href="#blog-4" class="text-muted">.4 Why use Template Strings ?</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <!-- blogs ends -->
-
+    <!-- footer -->
+    <footer class="container-fluid bg-white py-3 mt-5">
+        <p class="text-muted text-center">Copyright 2021 News Portal</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
