@@ -35,12 +35,18 @@ const displayCategoryNews = async (category_id, category_name) => {
     // displaying number of result found 
     displayNumberOfResultFound('mumberOfNewsfound', category_name, categoryNews.length);
 
+    // sorting news based on view 
+    let categoryNewsSortedByView = sortNewsByView(categoryNews);
+
     // processing category news
 
-    categoryNews.forEach(news => {
+    categoryNewsSortedByView.forEach(news => {
         console.log(news);
         // destructuring 
         const { author, details, image_url: largeImage, others_info, rating, thumbnail_url, title, total_view, _id } = news;
+
+        // formating details : slicing upto 500 and then show ...
+        let formatedDetails = formatingDetails(details);
 
         // Formating date to match design 
         const publisheddate = formatDate(author.published_date);
@@ -58,7 +64,7 @@ const displayCategoryNews = async (category_id, category_name) => {
                 <div class="col-md-9">
                     <div class="card-body">
                         <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${details}</p>
+                        <p class="card-text">${formatedDetails}</p>
                         <div class="row d-flex align-items-center justify-content-between">
                             <div class="col-md-4 d-flex gap-3 align-items-center" id="author">
                                 <div class="author-avatar">
@@ -95,11 +101,7 @@ const displayCategoryNews = async (category_id, category_name) => {
     spinner("hide");
 }
 
-/*
-<div class="card mb-3 shadow-lg">
-               
-            </div>
-*/
+
 
 
 

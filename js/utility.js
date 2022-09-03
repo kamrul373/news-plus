@@ -36,3 +36,20 @@ const formatDate = date => {
     publisheddate = new Intl.DateTimeFormat('en-US', options).format(publisheddate);
     return publisheddate;
 }
+
+// news sorting by view 
+const sortNewsByView = newsArray => {
+    let NewsSortedByView = newsArray.sort((a, b) => b.total_view - a.total_view);
+    return NewsSortedByView;
+}
+
+// formating Details
+const formatingDetails = details => {
+    if (details.length > 500) {
+        details = details.slice(0, 500);
+        details = details + " ... ";
+        return details
+    } else {
+        return details;
+    }
+}
