@@ -26,7 +26,8 @@ const displayCategoryNews = async (category_id, category_name) => {
     // showing spinner
     spinner("show");
     // loading single category news
-    const categoryNews = await loadCategoryNews(category_id)
+    const categoryNews = await loadCategoryNews(category_id);
+    console.log(categoryNews);
     // category news container
     const categoryNewsContainer = document.getElementById("category-news");
     // cleaning
@@ -102,7 +103,6 @@ const displayCategoryNews = async (category_id, category_name) => {
 const displayNewsDetails = async (news_id) => {
     // loading news details
     const newsDetails = await loadNewsDetails(news_id);
-    console.log(newsDetails);
     // object destructuring
     const { author, details, image_url: largeImage, others_info, rating, title, total_view } = newsDetails;
     // news Details Container
@@ -147,6 +147,79 @@ const displayNewsDetails = async (news_id) => {
     `
 
 }
+
+// by default loading news , sorting by views
+
+// displaying all news in a category 
+const allnews = async () => {
+    // loading single category news
+    const categoryNews = await loadCategoryNews("08");
+    // category news container
+    const categoryNewsContainer = document.getElementById("category-news");
+    // cleaning
+    categoryNewsContainer.innerHTML = "";
+
+    // sorting news based on view 
+    let categoryNewsSortedByView = sortNewsByView(categoryNews);
+
+    // processing category news
+
+    categoryNewsSortedByView.forEach(news => {
+        // destructuring 
+        const { author, details, others_info, thumbnail_url, title, total_view, _id } = news;
+
+        // formating details : slicing upto 500 and then show ...
+        let formatedDetails = formatingDetails(details);
+
+        // Formating date to match design 
+        const publisheddate = formatDate(author.published_date);
+
+        // creating new element where each news will appear
+
+        const singleNewsContainer = document.createElement("div");
+        singleNewsContainer.classList.add("card", "mb-3", "shadow-lg");
+
+        singleNewsContainer.innerHTML = `
+            <div class="row g-1 p-3">
+                <div class="col-md-3">
+                    <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="${title}">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${formatedDetails}</p>
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-md-4 d-flex gap-3 align-items-center" id="author">
+                                <div class="author-avatar">
+                                    <img src="${author.img}" class="img-fluid" alt="author">
+                                </div>
+                                <div class="author-info d-flex flex-column">
+                                    <span>${author.name ? author.name : "n/a"}</span>
+                                    <span class="text-muted">${publisheddate}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="bi bi-eye"></i>
+                                <strong>${total_view ? total_view : "n/a"}</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ``}</span>
+                                <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
+                                <span>${others_info.is_todays_pick == false && others_info.is_trending == false ? `${stars()}` : ""}</span>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        categoryNewsContainer.appendChild(singleNewsContainer);
+
+    });
+}
+allnews();
 
 
 

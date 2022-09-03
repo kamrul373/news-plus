@@ -25,7 +25,7 @@ const spinner = logic => {
 }
 
 // change background color of categories-menu when scroll
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", function (e) {
     document.getElementById("categories-menu").style.backgroundColor = "#FFF";
 });
 
