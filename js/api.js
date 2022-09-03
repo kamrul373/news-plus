@@ -12,6 +12,7 @@ const loadCategories = async () => {
     }
 
 }
+// loading category news
 const loadCategoryNews = async (category_id) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
 
@@ -24,4 +25,17 @@ const loadCategoryNews = async (category_id) => {
         console.log(error)
     }
 
+}
+
+// loading news details
+const loadNewsDetails = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+
+    try {
+        const response = await fetch(url);
+        const newsDetails = await response.json();
+        return newsDetails.data[0];
+    } catch (error) {
+        console.log(error);
+    }
 }

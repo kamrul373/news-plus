@@ -41,9 +41,8 @@ const displayCategoryNews = async (category_id, category_name) => {
     // processing category news
 
     categoryNewsSortedByView.forEach(news => {
-        console.log(news);
         // destructuring 
-        const { author, details, image_url: largeImage, others_info, rating, thumbnail_url, title, total_view, _id } = news;
+        const { author, details, others_info, thumbnail_url, title, total_view, _id } = news;
 
         // formating details : slicing upto 500 and then show ...
         let formatedDetails = formatingDetails(details);
@@ -80,14 +79,12 @@ const displayCategoryNews = async (category_id, category_name) => {
                                 <strong>${total_view ? total_view : "n/a"}</strong>
                             </div>
                             <div class="col-md-4">
-                                <i class="bi bi-star-half"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
+                                <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ``}</span>
+                                <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
+                                <span>${others_info.is_todays_pick == false && others_info.is_trending == false ? `${stars()}` : ""}</span>
                             </div>
                             <div class="col-md-2">
-                                <a onclick="displayNewsDetails('${_id}')"><i class="bi bi-arrow-right"></i></a>
+                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
                             </div>
                         </div>
                     </div>
@@ -99,6 +96,56 @@ const displayCategoryNews = async (category_id, category_name) => {
     });
     // hiding spinner
     spinner("hide");
+}
+
+// displaying single news details 
+const displayNewsDetails = async (news_id) => {
+    // loading news details
+    const newsDetails = await loadNewsDetails(news_id);
+    console.log(newsDetails);
+    // object destructuring
+    const { author, details, image_url: largeImage, others_info, rating, title, total_view } = newsDetails;
+    // news Details Container
+    const newsDetailsContainer = document.getElementById("news-details");
+    // cleaning
+    newsDetailsContainer.innerHTML = ""
+    // displaying news details on modal
+    newsDetailsContainer.innerHTML = `
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex gap-3 align-items-center pb-3" id="author">
+                <div class="modal-author-avatar">
+                    <img src="${author.img}" class="img-fluid" alt="author">
+                </div>
+                <div class="author-info d-flex flex-column">
+                    <strong>${author.name ? author.name : "n/a"}</strong>
+                    <span class="text-muted">${formatDate(author.published_date)}</span>
+                </div>
+                <div class="total-view px-3">
+                   <span><strong>Views : </strong>${total_view ? total_view : "n/a"}</span>
+                </div>
+                <div class="px-3">
+                    <span><strong>Ratting : </strong> ${rating.number}</span>
+                </div>
+                <div class="tags px-3">
+                    <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ""}</span>
+                    <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
+                </div>
+            </div>
+            
+            <div class="text-center mb-2">
+                <img src="${largeImage}" class="img-fluid"/>
+            </div>
+            <p>${details}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    `
+
 }
 
 

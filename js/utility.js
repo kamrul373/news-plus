@@ -53,3 +53,13 @@ const formatingDetails = details => {
         return details;
     }
 }
+
+// stars
+
+const stars = () => {
+    return ` <i class="bi bi-star-half"></i>
+    <i class="bi bi-star"></i>
+    <i class="bi bi-star"></i>
+    <i class="bi bi-star"></i>
+    <i class="bi bi-star"></i>`
+}
