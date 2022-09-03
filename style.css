@@ -40,3 +40,12 @@ header .nav-item a.nav-link:hover {
 #custom-spinner {
     z-index: 999;
 }
+
+/* author avatar */
+
+.author-avatar img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}

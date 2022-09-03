@@ -23,3 +23,16 @@ const spinner = logic => {
         spinnerContainer.classList.add("d-none");
     }
 }
+
+// change background color of categories-menu when scroll
+window.addEventListener("scroll", function () {
+    document.getElementById("categories-menu").style.backgroundColor = "#FFF";
+});
+
+// date formaat 
+const formatDate = date => {
+    let publisheddate = new Date(date);
+    let options = { year: 'numeric', month: 'short', day: 'numeric' };
+    publisheddate = new Intl.DateTimeFormat('en-US', options).format(publisheddate);
+    return publisheddate;
+}
