@@ -50,9 +50,10 @@ header .nav-item a.nav-link:hover {
     border-radius: 50%;
 }
 
-.modal-author-avatar {
-    width: 50px;
-    height: 50px;
+
+#modal-footer-img img {
+    width: 40px;
+    height: 40px;
     border: 1px solid transparent;
     border-radius: 50%;
     box-sizing: border-box;

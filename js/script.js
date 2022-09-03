@@ -58,34 +58,34 @@ const displayCategoryNews = async (category_id, category_name) => {
 
         singleNewsContainer.innerHTML = `
             <div class="row g-1 p-3">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12 text-center">
                     <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="${title}">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 col-sm-12">
                     <div class="card-body">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${formatedDetails}</p>
-                        <div class="row d-flex align-items-center justify-content-between">
-                            <div class="col-md-4 d-flex gap-3 align-items-center" id="author">
+                        <div class="row d-md-flex align-items-center justify-content-between">
+                            <div class="col-md-4 col-6 d-md-flex gap-3 align-items-center mb-2" id="author">
                                 <div class="author-avatar">
                                     <img src="${author.img}" class="img-fluid" alt="author">
                                 </div>
-                                <div class="author-info d-flex flex-column">
+                                <div class="author-info d-md-flex flex-column">
                                     <span>${author.name ? author.name : "n/a"}</span>
                                     <span class="text-muted">${publisheddate}</span>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-6 mb-2">
                                 <i class="bi bi-eye"></i>
                                 <strong>${total_view ? total_view : "n/a"}</strong>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-6">
                                 <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ``}</span>
                                 <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
                                 <span>${others_info.is_todays_pick == false && others_info.is_trending == false ? `${stars()}` : ""}</span>
                             </div>
-                            <div class="col-md-2">
-                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
+                            <div class="col-md-2 col-6">
+                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="d-md-none d-block">Details</span><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
                             </div>
                         </div>
                     </div>
@@ -116,32 +116,34 @@ const displayNewsDetails = async (news_id) => {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="d-flex gap-3 align-items-center pb-3" id="author">
-                <div class="modal-author-avatar">
-                    <img src="${author.img}" class="img-fluid" alt="author">
+            <div class="row  pb-3 mb-5" id="author">
+                <div class="col-sm-3 col-6 mb-3"> 
+                    <div class="author-info ">
+                        <span class="text-muted">${formatDate(author.published_date)}</span>
+                    </div>
                 </div>
-                <div class="author-info d-flex flex-column">
-                    <strong>${author.name ? author.name : "n/a"}</strong>
-                    <span class="text-muted">${formatDate(author.published_date)}</span>
-                </div>
-                <div class="total-view px-3">
+                <div class="total-view px-3 col-sm-3 col-6 mb-3">
                    <span><strong>Views : </strong>${total_view ? total_view : "n/a"}</span>
                 </div>
-                <div class="px-3">
+                <div class="px-3 col-sm-3 col-6">
                     <span><strong>Ratting : </strong> ${rating.number}</span>
                 </div>
-                <div class="tags px-3">
+                <div class="tags px-3 col-sm-3 col-6">
                     <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ""}</span>
                     <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
                 </div>
             </div>
-            
             <div class="text-center mb-2">
                 <img src="${largeImage}" class="img-fluid"/>
             </div>
             <p>${details}</p>
+            <p id="modal-footer-img">
+                <img src="${author.img}" class="img-fluid" alt="author">
+            </p>
+            <p><strong>Author :</strong> ${author.name ? author.name : "n/a"}</p>
         </div>
         <div class="modal-footer">
+            
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
     `
@@ -181,15 +183,15 @@ const allnews = async () => {
 
         singleNewsContainer.innerHTML = `
             <div class="row g-1 p-3">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12 text-center">
                     <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="${title}">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 col-12">
                     <div class="card-body">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${formatedDetails}</p>
-                        <div class="row d-flex align-items-center justify-content-between">
-                            <div class="col-md-4 d-flex gap-3 align-items-center" id="author">
+                        <div class="row d-lg-flex align-items-center justify-content-between">
+                            <div class="col-md-4 col-6 d-lg-flex gap-3 align-items-center mb-2" id="author">
                                 <div class="author-avatar">
                                     <img src="${author.img}" class="img-fluid" alt="author">
                                 </div>
@@ -198,17 +200,17 @@ const allnews = async () => {
                                     <span class="text-muted">${publisheddate}</span>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-6 mb-2">
                                 <i class="bi bi-eye"></i>
                                 <strong>${total_view ? total_view : "n/a"}</strong>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-6">
                                 <span class="badge text-bg-primary">${others_info.is_todays_pick == true ? "Today Picked" : ``}</span>
                                 <span class="badge text-bg-success">${others_info.is_trending == true ? "Trending" : ""}</span>
                                 <span>${others_info.is_todays_pick == false && others_info.is_trending == false ? `${stars()}` : ""}</span>
                             </div>
-                            <div class="col-md-2">
-                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
+                            <div class="col-md-2 col-6">
+                                <a href="#" onclick="displayNewsDetails('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="d-md-none d-block">Details</span><i class="bi bi-arrow-right fs-2 text-primary"></i></a>
                             </div>
                         </div>
                     </div>
